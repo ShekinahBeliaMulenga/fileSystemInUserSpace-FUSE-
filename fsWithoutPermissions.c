@@ -3,8 +3,6 @@
     PARTNER: GLORIA CHOMBA
 
 
-
-
     FILE SYSTEM IMPLEMENTATION OVERVIEW
 
     This code implements and demonstrates the simulation a simple file system in user space with the following features:
@@ -21,33 +19,6 @@
 
     - Indexed Allocation: One additional block is used for indirect addressing (INDEX_BLOCKS). This block can point to more
       blocks if the file size exceeds the capacity of direct blocks.
-
-    Limitations:
-    - The file system does not properly restore file permissions during the recovery process because inodes
-    and their associated permissions are not preserved on Windows systems.
-    This is due to the lack of native support for inodes in the Windows operating system,
-    which means that permissions and other inode-based metadata are not correctly handled or restored.
-
-    However, simulation of permission operations can be observed when the system is compiled and run.
-    This allows users to experience how permissions would function in a typical Unix-like environment,
-    even though the actual restoration of file permissions may not be fully supported on Windows.
-
-    Key Components:
-    - Superblock: Contains metadata about the file system.
-    - Inodes: Represent files and directories.
-    - Data Blocks: Store file data.
-    - Journal: Records file system operations for recovery.
-    - ACLs: Manage file access permissions for different users.
-    - GUI Integration: Provides a GTK-based interface for user interactions.
-
-    Note: This implementation is tailored for Windows environments and some Unix-like features such as inodes may not be fully supported or restored.
-
-    Permissions are set according to the following bit mask:
-    - 0400: Owner read
-    - 0200: Owner write
-    - 0100: Owner execute
-    - 0777: all default permissions
-
 
 */
 
